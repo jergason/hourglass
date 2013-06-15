@@ -6,10 +6,13 @@
   "directories": {
     "test": "test"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jergason/hourglass.git"
+  },
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha test/*"
   },
-  "repository": "",
   "keywords": [
     "browser",
     "performance",
@@ -18,7 +21,7 @@
   "devDependencies": {
     "mocha": "1.11.0"
   },
-  "author": "Jamison Dance",
+  "author": "Jamison Dance <jergason@gmail.com> (http://jamisondance.com)",
   "license": "BSD",
   "readmeFilename": "README.md"
 }

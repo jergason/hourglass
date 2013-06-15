@@ -1,0 +1,24 @@
+{
+  "name": "hourglass",
+  "version": "0.0.1",
+  "description": "Client-side performance monitoring and aggregation.",
+  "main": "hourglass.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha test/*"
+  },
+  "repository": "",
+  "keywords": [
+    "browser",
+    "performance",
+    "metrics"
+  ],
+  "devDependencies": {
+    "mocha": "1.11.0"
+  },
+  "author": "Jamison Dance",
+  "license": "BSD",
+  "readmeFilename": "README.md"
+}

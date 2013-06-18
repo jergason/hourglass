@@ -69,7 +69,7 @@
 
 
   /**
-   * Finish recording a time for a metric. It will be sent of with the
+   * Finish recording a time for a metric. It will be sent off with the
    * next aggregation cycle.
    * @param metricName String name of the metric to resolve.
    */

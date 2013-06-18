@@ -5,6 +5,9 @@ a `time` and `timeEnd` api for measuring how long things take, similar to the
 Chrome console API. It aggregates these times and POSTs them to a server, where
 you make magic happen with them.
 
+It uses jQuery for HTTP requests if it is defined, but you can pass in your
+own HTTP library if you want to use something different.
+
 # AN EXAMPLE
 
 ```javascript
@@ -24,20 +27,6 @@ function someLongRunningThing() {
 Now every 10 seconds, hourglass will POST any metrics that were `timeEnd`ed
 to the url.
 
-### Metric Format
-
-They get POSTed as JSON with this format:
-
-```JavaScript
-{
-  "timestamp": 123455434, // timestamp the metrics were posted
-  "metrics": {
-    "metricName": [10, 20, 500, 10], // arrays of times in millesecond between `time` and `timeEnd`.
-    "metricName2": [12312, 1234, 5959]
-  }
-}
-```
-
 
 ## API
 
@@ -49,6 +38,9 @@ Create a new instance of Hourglass. `opts` is a hash of options
 * `aggregationInterval` - the number of milliseconds to wait between POSTing
   metrics to `url`. Defaults to 60000
 * `verbose` - if true, debug info will be printed to the console.
+* `httpLib` - an alternative HTTP library that will be used instead of
+   window.jQuery. It must have a `.ajax()` function that has the same api
+   as `jQuery.ajax()`
 
 *Example*
 
@@ -102,6 +94,21 @@ Stop sending metrics to the server.
 ### Will this work on IE <= 8?
 
 (╯°□°）╯︵ ƎI
+
+The real answer is maybe, but I didn't do anything special to support it.
+
+### What do the metrics look like when sent to the server?
+They get POSTed as JSON with this format:
+
+```JavaScript
+{
+  "timestamp": 123455434, // timestamp the metrics were posted
+  "metrics": {
+    "metricName": [10, 20, 500, 10], // arrays of times in millesecond between `time` and `timeEnd`.
+    "metricName2": [12312, 1234, 5959]
+  }
+}
+```
 
 ### How do I consume these on the server?
 
